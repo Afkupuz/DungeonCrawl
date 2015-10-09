@@ -1,0 +1,122 @@
+    html, body {
+    padding: 5px;
+}
+
+#userinterface{
+    display: inline-block;
+    position: relative;
+}
+#userinterface table{
+    display: inline-block;
+    position: relative;
+    background-color:rgba(1000, 1000, 1000, 0.6);
+}
+#userinterface thead td {
+    background-color: #8CCCF1;
+}
+#userinterface td {
+    border: 1px solid #466E85;
+    width: 136px;
+    padding: 7px;
+}
+#userinterface div{
+    display: inline-block;
+    overflow:scroll;
+    height:200px;
+    width:280px;
+    text-align: center;
+    background-color:rgba(1000, 1000, 1000, 0.6);
+}
+
+#inventory {
+    overflow:scroll;
+}
+
+
+#hideMe{
+    //display:none;
+    
+}
+
+#battlemap{
+    border: 1px solid #466E85;
+    width:50%;
+    height:50%;
+    padding:1%;
+}
+#battlemap button{
+    display:inline-block;
+    margin: auto;
+    width: 32%;
+    height: 50px;
+    border:3px solid #8AC007;
+    padding: 1px;
+}
+
+
+#characterCreator {
+    //display:none;
+    border-style: groove;
+    border-width: 2px;
+    width:100%;
+    height:50%;
+    padding:10%;
+    background-color:rgba(1000, 1000, 1000, 0.6);
+}
+.radiobutton{
+    display:inline-block;
+    margin: auto;a
+    width: 30%;
+    border:3px solid #8AC007;
+    padding: 1px;
+}
+
+.world {
+    //background-color:green;
+}
+
+.grass {
+   background-color:green;
+   background-image:url('http://thedirtonwater.com/wp-content/uploads/2015/05/7015829-spring-grass-wallpaper.jpg');
+   background-size:100px 100px;
+}
+.tree {
+   background-color:#95BE22;
+   background-image:url('http://forrestministries.com/portals/0/images/forrest3.png');
+   background-size:100px 95px;
+}
+.mountain {
+   background-color:#B0E0E6;
+   background-image:url('https://upload.wikimedia.org/wikipedia/commons/2/2b/GoraBeluha.jpg');
+   background-size:120px 85px;
+}
+.monster {
+   background-color:red;
+   background-image:url('https://s-media-cache-ak0.pinimg.com/736x/1b/4b/29/1b4b29b7c516049fb28b4fa32084ceba.jpg');
+   background-size:100px 100px;
+}
+.treasure {
+    background-color:#ffae19;
+    background-image:url('http://caledonianmercury.com/wp-content/uploads/2013/10/Cheapside-Hoard-treasure-Cropped.jpg');
+   background-size:130px 100px;
+}
+.hero {
+    background-color:black;
+    background-image:url('http://img1.wikia.nocookie.net/__cb20140929174019/thefatneilmemorialgroup/images/2/27/Fantasy-Art-Wesley-Burt-Fiendslayer-Paladin.jpg');
+   background-size:100px 100px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
