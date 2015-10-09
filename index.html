@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<script src="jquery-1.11.3.min.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+<script type="text/javascript" src="script.js"></script>
+</head>
+<body background="http://images3.alphacoders.com/146/146479.jpg" style="width:1024px;height:768px">
+>
+<div id='hideMe'>
+  <div id='characterCreator'>
+    <div>
+      <div>
+        <div id='namebox' style='border-style:groove;border-width:5px;position:relative;height:100;width:400px;padding:5px'>
+          <p style=''>Welcome to the dragon's lair, <i id='heroName'>Hero</i>!</p>
+          <input type='text' id='userInputName' value='Hero' />
+          <input type='button' onClick='getName();displayStats(userName, userClass, userStats)' value='Enter Name'/>
+        </div>
+        <!--name--> 
+      </div>
+      <div rowspan="2">
+        <div id='classbox' style='border-style:groove;border-width:5px;height:350;width:400px;padding:5px;display:inline-block'>
+          <div id='classPicture'><img src="https://www.jinx.com/content/prod/113p_26c_2b.jpg" style="width:800;height:600"></div>
+          <div id='radiobuttons'>
+            <label class='radiobutton'>Warrior:
+              <input type="radio" onClick='SelectWarrior();displayStats(u serName, userClass, userStats)' name="classSelect">
+            </label>
+            <label class='radiobutton'>Rogue:
+              <input type="radio" onClick='SelectRogue();displayStats(userName, userClass, userStats)' name="classSelect">
+            </label>
+            <label class='radiobutton'>Mage:
+              <input type="radio" onClick='SelectMage();displayStats(userName, userClass, userStats)' name="classSelect">
+            </label>
+          </div>
+          <div id='classDescription'>Pick a class</div>
+        </div>
+        <!--end classbox--> 
+      </div>
+      <div rowspan="2">
+        <div style='border-style:groove;border-width:5px;height:150;width:200px;padding:100px;display:inline-block'>
+          <div id="totalStats"></div>
+          <button onClick='CreateCharacter(userName, userClass, userStats)' id="finish">Create Character</button>
+        </div>
+        <!--create button--> 
+      </div>
+    </div>
+    <div>
+      <div>
+        <div id='buttonbox' style='border-style:groove;border-width:5px;position:relative;height:200;width:400px;padding:5px'>
+          <div id='rollbox' ></div>
+          <button onClick="StatGen();displayStats(userName, userClass, userStats)" style='margin:10px'>Roll Stats</button>
+        </div>
+        <!--roll--> 
+      </div>
+    </div>
+  </div>
+  <!--character creator-->
+  
+  <div>
+    <div>
+      <div>
+        <div id='userinterface'>
+          <div id='levelUp'></div>
+          <!--level up Table--> 
+        </div>
+      </div>
+      <div>
+        <div id='userinterface'>
+          <div id='status'></div>
+          <!-- status --> 
+        </div>
+      </div>
+      <div>
+        <div id='userinterface'>
+          <div id='equipment'></div>
+          <!--equipment Table--> 
+        </div
+	            >
+      </div>
+    </div>
+    <div>
+      <div> td1 </div>
+      <div>
+        <div id='battlemap' style="width:600px;height:500px">
+          <div id='monster' style='display:none'> <img src="http://40.media.tumblr.com/d13b329e4a27e493797077d3ea3fc856/tumblr_n7faf9iWUS1to7ny3o3_1280.jpg" style="width:100%;height:90%">
+            <div id='fightButtons'>
+              <button value='basic' onClick='Event(this.value, userHero)'>Basic Attack</button>
+              <button value='special' onClick='Event(this.value, userHero)'>Special Attack</button>
+              <button value='ultimate' onClick='Event(this.value, userHero)'>Ultimate Attack</button>
+            </div>
+          </div>
+          <div id='field'></div>
+        </div>
+        <!--battle and map--> 
+      </div>
+      <div id="heropicdisplay" style="width:500px;height:200px"> td3 </div>
+    </div>
+    <div>
+      <div>
+        <div id='userinterface' style="overflow:scroll;height:300px;width:320px;background-image:url('http://2.bp.blogspot.com/-MNLuGO8dtUY/Tgysmvb93XI/AAAAAAAAATU/PyhXB5xVYVY/s1600/Druidic%2BSatchelb.jpg');background-size:300px 300px;">
+          <div id='inventory'></div>
+          <!--Inventory Table--> 
+        </div>
+      </div>
+      <div>
+        <div id='playpen' style="overflow:scroll;height:300px;width:620px;background-color:rgba(1000, 1000, 1000, 0.6);">
+          <p id='messageArea'>Output: </p>
+        </div>
+        <!--update pane--> 
+      </div>
+      <div>
+        <div id='userinterface' style="background-image:url('http://orig05.deviantart.net/c93e/f/2010/029/6/e/magic_3_by_ameliy.jpg');background-size:500px 300px;">
+          <div id='spellbook'></div>
+          <!--spell book Table--> 
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--game pen--> 
+  
+</div>
+<!--Hidden-->
+
+<p id='stuff'>stuff:
+  <button onClick='test()'>the button</button>
+</p>
+<p id='other'>other: every 10 map iterations put storyline
+  heals dont change status table </p>
+<p id='foo'>foo:
+  <button onClick='userHero.levelUp();out(userHero.int)'>the other button</button>
+</p>
+</body>
+</html>
