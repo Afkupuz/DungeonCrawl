@@ -7,6 +7,7 @@ var userHero;
 var gameLevel = 1;
 var moveCount = 0;
 Monster.prototype = new Character(this.name, this.str, this.agi, this.int, this.hpMax, this.itemLevel)
+var gitHubTest = 0;
 
 //---------------------------//
 
