@@ -1,5 +1,63 @@
-    html, body {
+html, body {
     padding: 5px;
+}
+
+.radiobutton {
+	display:block;
+    width: 90%;
+    border:3px solid #d9b834;
+	padding:10px;
+	margin-top:5px;
+	float:left;
+	text-emphasis:accent;
+	text-shadow: 0px 0px 5px #bf00ff;
+  	font-family: Arial;
+	font-size:14px;
+  	color: #000;
+}
+
+#finish {
+  background: #d9b834;
+  background-image: -webkit-linear-gradient(top, #d9b834, #b84d2c);
+  background-image: -moz-linear-gradient(top, #d9b834, #b84d2c);
+  background-image: -ms-linear-gradient(top, #d9b834, #b84d2c);
+  background-image: -o-linear-gradient(top, #d9b834, #b84d2c);
+  background-image: linear-gradient(to bottom, #d9b834, #b84d2c);
+  -webkit-border-radius: 20;
+  -moz-border-radius: 20;
+  border-radius: 20px;
+  text-shadow: 2px 2px 2px #000000;
+  font-family:Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", monospace;
+  color: #dbdbdb;
+  font-size: 33px;
+  padding: 10px 20px 10px 20px;
+}
+
+#finish:hover {
+  background: #45c42f;
+  background-image: -webkit-linear-gradient(top, #45c42f, #505c0c);
+  background-image: -moz-linear-gradient(top, #45c42f, #505c0c);
+  background-image: -ms-linear-gradient(top, #45c42f, #505c0c);
+  background-image: -o-linear-gradient(top, #45c42f, #505c0c);
+  background-image: linear-gradient(to bottom, #45c42f, #505c0c);
+}
+
+
+.creatorButton {
+  background: #d9b834;
+  border-radius: 10px;
+  color: #000;
+  font-size: 12px;
+  padding: 2px;
+}
+
+.creatorButton:hover {
+  background: #45c42f;
+  background-image: -webkit-linear-gradient(top, #45c42f, #505c0c);
+  background-image: -moz-linear-gradient(top, #45c42f, #505c0c);
+  background-image: -ms-linear-gradient(top, #45c42f, #505c0c);
+  background-image: -o-linear-gradient(top, #45c42f, #505c0c);
+  background-image: linear-gradient(to bottom, #45c42f, #505c0c);
 }
 
 #userinterface{
@@ -62,13 +120,6 @@
     height:50%;
     padding:10%;
     background-color:rgba(1000, 1000, 1000, 0.6);
-}
-.radiobutton{
-    display:inline-block;
-    margin: auto;a
-    width: 30%;
-    border:3px solid #8AC007;
-    padding: 1px;
 }
 
 .world {
