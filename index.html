@@ -9,53 +9,43 @@
 <body background="http://images3.alphacoders.com/146/146479.jpg" style="width:1024px;height:768px">
 >
 <div id='hideMe'>
-  <div id='characterCreator'>
-    <div>
-      <div>
-        <div id='namebox' style='border-style:groove;border-width:5px;position:relative;height:100;width:400px;padding:5px'>
-          <p style=''>Welcome to the dragon's lair, <i id='heroName'>Hero</i>!</p>
-          <input type='text' id='userInputName' value='Hero' />
-          <input type='button' onClick='getName();displayStats(userName, userClass, userStats)' value='Enter Name'/>
-        </div>
-        <!--name--> 
-      </div>
-      <div rowspan="2">
-        <div id='classbox' style='border-style:groove;border-width:5px;height:350;width:400px;padding:5px;display:inline-block'>
-          <div id='classPicture'><img src="https://www.jinx.com/content/prod/113p_26c_2b.jpg" style="width:800;height:600"></div>
-          <div id='radiobuttons'>
-            <label class='radiobutton'>Warrior:
-              <input type="radio" onClick='SelectWarrior();displayStats(u serName, userClass, userStats)' name="classSelect">
+  <div id="creator" style="width:100%;Height:800px;background-color:rgba(1000, 1000, 1000, 0.6);padding:25px;">
+	<div id="name" style="text-align:center;width:100%;height:15%;">
+    	<p>Welcome to the realm of the Infinite Castle</p>
+        <p style="display:inline-block">What is your name, Stranger?</p>
+          <input type="text" id="userInputName" value="Stranger" style="display:inline-block" />
+          <input type="button" class="creatorButton" onClick="getName();displayStats(userName, userClass, userStats)" value="Enter Name" style="display:inline-block" />
+    </div>
+    <div id="classPicture" style="width:70%;height:60%;float:left"><img src="https://www.jinx.com/content/prod/113p_26c_2b.jpg" alt="x" width="100%" height="100%"></div>
+    <div id="classSelectBox" style="width:28%;height:20%;float:right;display:block;text-align:center">
+    	<label class="radiobutton" style="background-image:url('http://cdn2.hubspot.net/hub/60349/file-26178937-jpg/images/aluminum-finish-pat-4548-c.jpg?t=1441285978389')">Warrior:
+              <input type="radio" onClick="SelectWarrior();displayStats(userName, userClass, userStats)" name="classSelect">
+         </label>
+         <label class="radiobutton" style="background-image:url('http://lilliemcferrin.com/wp-content/uploads/2014/09/dark-darkness-girl-light-lost-Favim.com-118417.jpg')" ;>Rogue:  
+              <input type="radio" onClick="SelectRogue();displayStats(userName, userClass, userStats)" name="classSelect">
+         </label>
+            <label class="radiobutton" style="background-image:url('https://www.colourbox.com/preview/6773380-blaze-fire-flame-texture-background.jpg')" >Mage:   
+         <input type="radio" onClick="SelectMage();displayStats(userName, userClass, userStats)" name="classSelect">
             </label>
-            <label class='radiobutton'>Rogue:
-              <input type="radio" onClick='SelectRogue();displayStats(userName, userClass, userStats)' name="classSelect">
-            </label>
-            <label class='radiobutton'>Mage:
-              <input type="radio" onClick='SelectMage();displayStats(userName, userClass, userStats)' name="classSelect">
-            </label>
+     </div>
+     <div id="statroll" style="width:28%;height:40%;float:right;display:block;border:3px solid #d9b834;">
+          <div id="rollbox" >
+         Strength: 0 <br>
+			Increases overall health and a warrior's damage.<br>
+		 Agility: 0 <br>
+			Increases overall critical strike chance and a rogue's damage.<br>
+		 Inteligence: 0 <br>
+			Increases overall experience gained and a mage's damage.<br>
+		Health Points: 0 <br>
+			Determines the amount of punishment a hero can take.<br>
           </div>
-          <div id='classDescription'>Pick a class</div>
-        </div>
-        <!--end classbox--> 
-      </div>
-      <div rowspan="2">
-        <div style='border-style:groove;border-width:5px;height:150;width:200px;padding:100px;display:inline-block'>
-          <div id="totalStats"></div>
-          <button onClick='CreateCharacter(userName, userClass, userStats)' id="finish">Create Character</button>
-        </div>
-        <!--create button--> 
-      </div>
-    </div>
-    <div>
-      <div>
-        <div id='buttonbox' style='border-style:groove;border-width:5px;position:relative;height:200;width:400px;padding:5px'>
-          <div id='rollbox' ></div>
-          <button onClick="StatGen();displayStats(userName, userClass, userStats)" style='margin:10px'>Roll Stats</button>
-        </div>
-        <!--roll--> 
-      </div>
-    </div>
-  </div>
-  <!--character creator-->
+          <button class="creatorButton" onClick="StatGen();displayStats(userName, userClass, userStats)" style="margin-left:40%;margin-top:10%">Roll Stats</button>
+      </div> <!--roll-->
+      <div id="classSum" style="width:100%;height:20%;margin:40%">
+          <button onClick="CreateCharacter(userName, userClass, userStats)" id="finish">Create Character</button>
+        </div> <!--create button-->
+     
+</div>
   
   <div>
     <div>
