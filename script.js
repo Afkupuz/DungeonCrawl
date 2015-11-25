@@ -1,12 +1,14 @@
 
 
-var userStats = new Array(4)
+var userStats = new Array(4);
 var userName = 'Hero';
 var userClass = 'warrior';
 var userHero;
 var gameLevel = 1;
 var moveCount = 0;
-Monster.prototype = new Character(this.name, this.str, this.agi, this.int, this.hpMax, this.itemLevel)
+var zepic = "";
+var storyLine = 2;
+Monster.prototype = new Character(this.name, this.str, this.agi, this.int, this.hpMax, this.itemLevel);
 
 //---------------------------//
 
@@ -29,7 +31,7 @@ function Map(width, height){
     };
  
     this.getLandType = function(x, y){
-        if (this.isValid(x, y) == true){
+        if (this.isValid(x, y) === true){
             return this.mapWorld.landType(this.myMap[x][y]);
         }
         else{
@@ -44,13 +46,13 @@ function CreateWorld(width, height){
     
     
     this.newMap = function(){
-        var world = new Array(this.mapX)
+        var world = new Array(this.mapX);
         for (var i = 0; i < this.mapX; i++){
             world[i] = new Array(this.mapY);
             for(var j = 0; j < this.mapY; j++){
             world[i][j] = Math.floor((Math.random() * 100) + 1);
-            };
-        };
+            }
+        }
         this.world = world;
         return world;
     }; //end newMap
@@ -67,10 +69,10 @@ function CreateWorld(width, height){
             return 'monster';
         }else {
             return 'treasure';
-        };
+        }
     }; //end land type
 
-};//creates the map and sets the land type in the array
+}//creates the map and sets the land type in the array
 function Hero(x, y, map){
     this.name = 'lancelot';
     this.hori = x;
@@ -95,46 +97,46 @@ function Hero(x, y, map){
     };//positioning
     this.moveN = function(){
         var newY = this.vert - 1;
-        if (this.heroMap.isValid(this.hori, newY) == false){
+        if (this.heroMap.isValid(this.hori, newY) === false){
             this.vert = this.vert+(map.mapY-1);
             this.isOff = true;
         }
         else{
-            this.vert = newY
-        };
+            this.vert = newY;
+        }
     };//move north
     this.moveS = function(){
         var newY = this.vert + 1;
-        if (this.heroMap.isValid(this.hori, newY) == false){
+        if (this.heroMap.isValid(this.hori, newY) === false){
             this.vert = this.vert-(map.mapY-1);
             this.isOff = true;
         }
         else {
-            this.vert = newY
-        };
+            this.vert = newY;
+        }
     };//more south
     this.moveE = function(){
         var newX = this.hori + 1;
-        if (this.heroMap.isValid(newX, this.vert) == false){
+        if (this.heroMap.isValid(newX, this.vert) === false){
             this.hori = this.hori-(map.mapX-1);
             this.isOff = true;
         }
         else {
-            this.hori = newX
-        };
+            this.hori = newX;
+        }
     };//move right, east
     this.moveW = function(){
         var newX = this.hori - 1;
-        if (this.heroMap.isValid(newX, this.vert) == false){
+        if (this.heroMap.isValid(newX, this.vert) === false){
             this.hori = this.hori+(map.mapX-1);
             this.isOff = true;
         }
         else {
-            this.hori = newX
-        };
+            this.hori = newX;
+        }
     };//move left,west
     
-};//provides movement for the hero
+}//provides movement for the hero
 function HeroDisplay(map, hero){
     
     this.displayMap = map;
@@ -146,28 +148,28 @@ function HeroDisplay(map, hero){
         var x = this.hero.myX();
         var y = this.hero.myY();
         
-        if (x != this.heroTokenX || y != this.heroTokenY){
+        if (x !== this.heroTokenX || y !== this.heroTokenY){
             this.coo = x+","+y;
-            this.cell = document.getElementById(this.coo)
-            this.cell.classList.remove('hero')
+            this.cell = document.getElementById(this.coo);
+            this.cell.classList.remove('hero');
             this.heroTokenX = x;
             this.heroTokenY = y;
             this.coo = x+","+y;
-            this.cell = document.getElementById(this.coo)
-            this.cell.classList.add('hero') 
+            this.cell = document.getElementById(this.coo);
+            this.cell.classList.add('hero') ;
         }
-    }
+    };
     
     this.heroTrackerA = function(x, y){
         this.coo = x+","+y;
         //get location by array value
-        this.cell = document.getElementById(this.coo)
-        this.cell.classList.add('hero')
+        this.cell = document.getElementById(this.coo);
+        this.cell.classList.add('hero');
     };//add hero class
     this.heroTrackerB = function(x, y){
         this.coo = x+","+y;
-        this.cell = document.getElementById(this.coo)
-        this.cell.classList.remove('hero')
+        this.cell = document.getElementById(this.coo);
+        this.cell.classList.remove('hero');
     };//remove hero class
     
     
@@ -176,7 +178,7 @@ function HeroDisplay(map, hero){
     };
     
     this.removeDisplay = function(){
-        $("table").remove()
+        $("table").remove();
     };
     //dispHi, dispWid
     this.createDisplay = function(){
@@ -196,14 +198,14 @@ function HeroDisplay(map, hero){
                 this.coordinates = x+","+y;
                 this.classSet = this.displayMap.getLandType(x, y);
                 this.cell = document.createElement('td');
-                this.cell.setAttribute('class', this.classSet)
-                this.cell.setAttribute('id', this.coordinates)
+                this.cell.setAttribute('class', this.classSet);
+                this.cell.setAttribute('id', this.coordinates);
                 //this.cell.appendChild(document.createTextNode(this.classSet +" "+ this.coordinates))
-                this.row.appendChild(this.cell)
+                this.row.appendChild(this.cell);
             }
             this.theWorld.appendChild(this.row);
         }
-        this.body.appendChild(this.theWorld)
+        this.body.appendChild(this.theWorld);
 };//end map display creator
     
     this.refreshDisplay = function(){
@@ -236,13 +238,13 @@ function HeroController(width, height){
     this.disp = new HeroDisplay(this.map, this.hero);
     
     this.canTele = function(){
-        if(this.teleport == false){
-            this.teleport = true
-        }else if(this.teleport == true){
+        if(this.teleport === false){
+            this.teleport = true;
+        }else if(this.teleport === true){
             this.teleport = false;
         }
         
-    }
+    };
     
     this.nextMap = function(){
         this.map = new Map(width,height);
@@ -251,19 +253,19 @@ function HeroController(width, height){
     };
     
     this.nextMapTest = function(test){
-           if (test == true){
+           if (test === true){
                 this.hero.isOff = false;
                 this.nextMap();
                 this.disp.refreshDisplay();
-                this.disp.heroTrackerA((this.hero.vert), (this.hero.hori))
+                this.disp.heroTrackerA((this.hero.vert), (this.hero.hori));
                 //var stuff = document.getElementById('stuff');
                 //stuff.appendChild(document.createTextNode(this.hero.vert));
-            };
+            }
     };
     
     this.action = function(cell, user){
        moveCount += 1;
-       if(this.teleport == true){
+       if(this.teleport === true){
         this.teleport = false;
     }
        
@@ -276,20 +278,20 @@ function HeroController(width, height){
          if (userHero.spellBook.length < 2){
          if(Math.random()*100 > 99){
          var spell = Math.random()*100 > 50 ? new MountainWalk():new Heal();
-         if(userHero.spellBook.length == 0){
+         if(userHero.spellBook.length === 0){
              userHero.addSpell(spell);
-             output('you found a spell')
-         };
+             output('you found a spell');
+         }
          
-         if (userHero.spellBook[0].name != spell.name){
+         if (userHero.spellBook[0].name !== spell.name){
              userHero.addSpell(spell);
-             output('you found a spell')
-         };
+             output('you found a spell');
+         }
          
-         };
+         }
      }
      } else if (cell === 'treasure') {
-         this.map.mapWorld.world[this.hero.vert][this.hero.hori] = 50
+         this.map.mapWorld.world[this.hero.vert][this.hero.hori] = 50;
          var weapon = new Weapon(gameLevel);
          var armor = new Armor(gameLevel);
          var item = Math.random()*100 > 50 ? weapon:armor;
@@ -303,39 +305,63 @@ function HeroController(width, height){
 });
          //output('You have found treasure and take a rest. You heal to '+userHero.hpMax)
      } else if (cell === 'monster') {
-         this.map.mapWorld.world[this.hero.vert][this.hero.hori] = 50
+         this.map.mapWorld.world[this.hero.vert][this.hero.hori] = 50;
         // this.terrain = document.getElementById('stuff');
         // this.terrain.appendChild(document.createTextNode("monster"));
          $('#field').hide(1000);
          $('#monster').show(1000);
-        monster = new Monster(gameLevel,gameLevel+1)
+        monster = new Monster(gameLevel,gameLevel+1);
         $("#messageArea").fadeOut(function() {
   $(this).text('A '+monster.name+' jumps out of the bushes brandishing its '+monster.weapon.name+'. It gives a roar of engagement and charges!').fadeIn();
 });
         //output('A '+monster.name+' jumps out of the bushes brandishing its '+monster.weapon.name+'. It gives a roar of engagement and charges!');
      }
-    }
+    };
     
     this.story = function(){
-        switch(gameCount){
-            case 0:
-                output("Welcome to the world hero. There is wealth and glory to be had, but beware the monsters. Gold will give you a chance to rest, and perhaps provide something useful. Monsters will attack with abandon. Do not try to cross the mountains; they are tall and vast. Rumors speak of trees that will teach you... Go forth, find the castle, rescue the princess, and above all SLAY THE DRAGON")
+		if (storyLine === gameLevel){
+        switch(gameLevel){
+            case 2:
+                output("Welcome to the world hero. There is wealth and glory to be had, but beware the monsters. Gold will give you a chance to rest, and perhaps provide something useful. Monsters will attack with abandon. Do not try to cross the mountains; they are tall and vast. Rumors speak of trees that will teach you... Go forth, find the castle, rescue the princess, and above all SLAY THE DRAGON");
+				storyLine = 10;
                 break;
-                case 10:
+            case 10:
+                  output("You have come far hero! In the distance there is a lonely spire! Could it be the fabled tower spoken of in reverent voices in every tavern? They say the most beautiful princess lives there, but only the most hardy of seekers have ever even seen it, and only a handful have heard the singing…");
+				  storyLine = 20;
+                break;
+            case 20:
+                  output("The castle can be seen from your vantage point. The walls are beyond compare – even at this distance they are massive and foreboding. Monsters and gold are everywhere. Remains of heroes attempting the same thing you are...");
+				  storyLine = 30;
+                break;
+            case 30:
+                  output("Ever closer you get, and ever bigger the castle gets. The monsters are starting to pack a real punch and you are getting tired of this endless trek.  You catch a glimpse of firelight in the distance, maybe someone else has made it this far?");
+				  storyLine = 40;
+                break;
+            case 40:
+                output("No matter how far you go, the castle seems just out of reach. Like a mirage, but it grows and expands and becomes more solid. The wall is all you can see at this point, towering far above. It is dizzying just looking at it, so you keep your head down and push on.");
+				storyLine = 50;
+                break;
+            case 50:
+                output("You begin to wonder if you will ever reach that damn wall, and even if you do. How will you get inside? You have grown powerful, the once fearsome monsters die at a glance, but the journey is killing you. How much farther?");
+				storyLine = 60;
+                break;
+                default:
+                out("Just a little more...");
                     
         }
-    }
+		}
+    };
         
     this.heroMove = function(arrow){
-        this.disp.heroTrackerB((this.hero.vert), (this.hero.hori))
+        this.disp.heroTrackerB((this.hero.vert), (this.hero.hori));
         switch(arrow.which) {
             case 37: // left, west
-            if (this.map.getLandType((this.hero.vert), (this.hero.hori-1)) == 'mountain' && this.teleport === false){
+            if (this.map.getLandType((this.hero.vert), (this.hero.hori-1)) === 'mountain' && this.teleport === false){
             }
             else{
             this.hero.moveW();
-            };
-            this.disp.heroTrackerA((this.hero.vert), (this.hero.hori))
+            }
+            this.disp.heroTrackerA((this.hero.vert), (this.hero.hori));
             this.nextMapTest(this.hero.isOff);
             break;
 
@@ -376,6 +402,7 @@ function HeroController(width, height){
         };
         this.action(this.map.getLandType(this.hero.vert, this.hero.hori), userHero);
         arrow.preventDefault(); // prevent the default action (scroll / move caret)
+		this.story();
         //this.disp.removeDisplay();
         //this.disp.createDisplay();
         
@@ -425,9 +452,9 @@ function Character(name, str, agi, int, hp, itemLevel){
   this.name = name;
   this.weapon = new Weapon(itemLevel);
   this.armor = new Armor(itemLevel);
-  this.str = str
-  this.agi = agi
-  this.int = int
+  this.str = str;
+  this.agi = agi;
+  this.int = int;
   this.hpMax = hp;
   this.level = 0;
   this.exp = 0;
@@ -438,20 +465,20 @@ function Character(name, str, agi, int, hp, itemLevel){
   this.damage = 0;
   
   this.crit = function(){  
-    this.totalcrit = 5+this.level+(this.agi*0.1)+(this.int*0.05)
-    return this.totalcrit
-  }
+    this.totalcrit = 5+this.level+(this.agi*0.1)+(this.int*0.05);
+    return this.totalcrit;
+  };
   this.levelUp = function(){
-      this.str += Math.floor((Math.random() * 3) + 3)
-      this.agi += Math.floor((Math.random() * 3) + 3)
-      this.int += Math.floor((Math.random() * 3) + 3)
-      this.hp += Math.floor((Math.random() * 12) + 13)
+      this.str += Math.floor((Math.random() * 3) + 3);
+      this.agi += Math.floor((Math.random() * 3) + 3);
+      this.int += Math.floor((Math.random() * 3) + 3);
+      this.hp += Math.floor((Math.random() * 12) + 13);
       this.level += 1;
       this.displayLevelUp();
       this.displayStatus();
-  }
+  };
   this.dealDamage = function(){
-      output(this.name+' swings!')
+      output(this.name+' swings!');
       this.damage = Math.floor((Math.random() * this.weapon.attack) + this.level) + this.str;
       return Math.floor(this.damage);
   };
@@ -931,11 +958,13 @@ function CreateCharacter(userName, userClass, userStats){
         userHero = new Rogue();
     }else{
         return
-    }
-    heropicdisplay
-    
-    $('#characterCreator').hide(1000);
-    $('#heropicdisplay').html(userHero.pic)
+    }    
+    $('#creator').hide(1000);
+	$('#gameon').show(1000);
+	$('#status').parent().css("background", "url("+zepic+") no-repeat");
+	$('#status').parent().css("background-size", "cover");
+	//$('.statusbar').css("background", "userHero.pic no-repeat");
+    //$('.statusbar').html(userHero.pic)
     lance = new HeroController(6, 6)
     lance.disp.createDisplay();
     lance.disp.origin();
@@ -974,27 +1003,30 @@ function StatGen() {
         userStats = this.stats;
 }
 function getName(){
-	var name = document.getElementById('userInputName').value;
-	document.getElementById('heroName').innerHTML = name;
+	var name = document.getElementById("userInputName").value;
+	//document.getElementById('heroName').innerHTML = name;
 	userName = name;
 }
 function SelectWarrior(){
     var description = "The Warrior is the symbol of strength and courage. Wade into battle with a roar! <br\> Passive: Extra Strength and Durrability"
 	document.getElementById('classDescription').innerHTML = description;
-	document.getElementById('classPicture').innerHTML = '<img src="https://www.ultimateeditionoz.com/forum/download/file.php?id=15404&mode=view" style="width:100%;height:70%;">';
+	document.getElementById('classPicture').innerHTML = '<img src="https://www.ultimateeditionoz.com/forum/download/file.php?id=15404&mode=view" style="width:100%;height:100%;">';
 	userClass = 'warrior';
+	zepic = "'https://www.ultimateeditionoz.com/forum/download/file.php?id=15404&mode=view'";
 }
 function SelectMage(){
     var description = "Hang back and rain hell down on EVERYTHING. The Magi is the pillar of intellect! <br\> Passive: Intelligence boosts damage"
 	document.getElementById('classDescription').innerHTML = description;
-	document.getElementById('classPicture').innerHTML = '<img src="http://api.ning.com/files/mL7vEimd6q1WfaGP6Q1yo2N0Y5e4-S-GTq6cG94N85u*7OuMzxuhVKlZQ2EpR7bzfTtnB0N1bC5obBqsaC*SnfJgCsPT8JHS/52063.jpg" style="width:100%;height:70%;">';
+	document.getElementById('classPicture').innerHTML = '<img src="http://api.ning.com/files/mL7vEimd6q1WfaGP6Q1yo2N0Y5e4-S-GTq6cG94N85u*7OuMzxuhVKlZQ2EpR7bzfTtnB0N1bC5obBqsaC*SnfJgCsPT8JHS/52063.jpg" style="width:100%;height:100%;">';
 	userClass = 'mage';
+	zepic = "'http://api.ning.com/files/mL7vEimd6q1WfaGP6Q1yo2N0Y5e4-S-GTq6cG94N85u*7OuMzxuhVKlZQ2EpR7bzfTtnB0N1bC5obBqsaC*SnfJgCsPT8JHS/52063.jpg'";
 }
 function SelectRogue(){
     var description = "Agility is the name of the game. This cunning free spirit will rob you blind and probably dead (though you may not realize it)! <br\> Passive: Extra large critical strikes and a chance to dodge."
 	document.getElementById('classDescription').innerHTML = description;
-	document.getElementById('classPicture').innerHTML = '<img src="http://www.allthatsepic.com/wp-content/uploads/2013/04/Thief-6.jpg" style="width:100%;height:70%;">';
+	document.getElementById('classPicture').innerHTML = '<img src="http://www.allthatsepic.com/wp-content/uploads/2013/04/Thief-6.jpg" style="width:100%;height:100%;">';
 	userClass = 'rogue';
+	zepic = "'http://www.allthatsepic.com/wp-content/uploads/2013/04/Thief-6.jpg'";
 }
 
 //-----------------------------//
@@ -1261,25 +1293,3 @@ $(document).keydown(function(e) {
 });
     
 });
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
