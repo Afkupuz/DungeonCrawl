@@ -6,119 +6,108 @@
 <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
 <script type="text/javascript" src="script.js"></script>
 </head>
-<body background="http://images3.alphacoders.com/146/146479.jpg" style="width:1024px;height:768px">
->
-<div id='hideMe'>
-  <div id="creator" style="width:100%;Height:800px;background-color:rgba(1000, 1000, 1000, 0.6);padding:25px;">
-	<div id="name" style="text-align:center;width:100%;height:15%;">
-    	<p>Welcome to the realm of the Infinite Castle</p>
-        <p style="display:inline-block">What is your name, Stranger?</p>
-          <input type="text" id="userInputName" value="Stranger" style="display:inline-block" />
-          <input type="button" class="creatorButton" onClick="getName();displayStats(userName, userClass, userStats)" value="Enter Name" style="display:inline-block" />
-    </div>
-    <div id="classPicture" style="width:70%;height:60%;float:left"><img src="https://www.jinx.com/content/prod/113p_26c_2b.jpg" alt="x" width="100%" height="100%"></div>
+<body>
+
+<div id="creator" style="width:100%;Height:800px;background-color:rgba(1000, 1000, 1000, 0.6);padding:25px;">
+  <div id="name" style="text-align:center;width:100%;height:15%;">
+    <p>Welcome to the realm of the Infinite Castle</p>
+    <p style="display:inline-block">What is your name, Stranger?</p>
+    <input type="text" id="userInputName" value="Stranger" style="display:inline-block" />
+    <input type="button" class="creatorButton" onClick="getName();displayStats(userName, userClass, userStats)" value="Enter Name" style="display:inline-block" />
+  </div>
+  <div id="classPicture" style="width:70%;height:60%;float:left;max-height:60%;"><img src="https://www.jinx.com/content/prod/113p_26c_2b.jpg" alt="x" width="100%" height="100%"></div>
+  <aside>
     <div id="classSelectBox" style="width:28%;height:20%;float:right;display:block;text-align:center">
-    	<label class="radiobutton" style="background-image:url('http://cdn2.hubspot.net/hub/60349/file-26178937-jpg/images/aluminum-finish-pat-4548-c.jpg?t=1441285978389')">Warrior:
-              <input type="radio" onClick="SelectWarrior();displayStats(userName, userClass, userStats)" name="classSelect">
-         </label>
-         <label class="radiobutton" style="background-image:url('http://lilliemcferrin.com/wp-content/uploads/2014/09/dark-darkness-girl-light-lost-Favim.com-118417.jpg')" ;>Rogue:  
-              <input type="radio" onClick="SelectRogue();displayStats(userName, userClass, userStats)" name="classSelect">
-         </label>
-            <label class="radiobutton" style="background-image:url('https://www.colourbox.com/preview/6773380-blaze-fire-flame-texture-background.jpg')" >Mage:   
-         <input type="radio" onClick="SelectMage();displayStats(userName, userClass, userStats)" name="classSelect">
-            </label>
-     </div>
-     <div id="statroll" style="width:28%;height:40%;float:right;display:block;border:3px solid #d9b834;">
-          <div id="rollbox" >
-         Strength: 0 <br>
-			Increases overall health and a warrior's damage.<br>
-		 Agility: 0 <br>
-			Increases overall critical strike chance and a rogue's damage.<br>
-		 Inteligence: 0 <br>
-			Increases overall experience gained and a mage's damage.<br>
-		Health Points: 0 <br>
-			Determines the amount of punishment a hero can take.<br>
-          </div>
-          <button class="creatorButton" onClick="StatGen();displayStats(userName, userClass, userStats)" style="margin-left:40%;margin-top:10%">Roll Stats</button>
-      </div> <!--roll-->
-      <div id="classSum" style="width:100%;height:20%;margin:40%">
-          <button onClick="CreateCharacter(userName, userClass, userStats)" id="finish">Create Character</button>
-        </div> <!--create button-->
-     
-</div>
-  
-  <div>
-    <div>
-      <div>
-        <div id='userinterface'>
-          <div id='levelUp'></div>
-          <!--level up Table--> 
-        </div>
-      </div>
-      <div>
-        <div id='userinterface'>
-          <div id='status'></div>
-          <!-- status --> 
-        </div>
-      </div>
-      <div>
-        <div id='userinterface'>
-          <div id='equipment'></div>
-          <!--equipment Table--> 
-        </div
-	            >
-      </div>
+      <label class="radiobutton" style="background-image:url('http://cdn2.hubspot.net/hub/60349/file-26178937-jpg/images/aluminum-finish-pat-4548-c.jpg?t=1441285978389')">Warrior:
+        <input type="radio" onClick="SelectWarrior();displayStats(userName, userClass, userStats)" name="classSelect">
+      </label>
+      <label class="radiobutton" style="background-image:url('http://lilliemcferrin.com/wp-content/uploads/2014/09/dark-darkness-girl-light-lost-Favim.com-118417.jpg')" >Rogue:
+        <input type="radio" onClick="SelectRogue();displayStats(userName, userClass, userStats)" name="classSelect">
+      </label>
+      <label class="radiobutton" style="background-image:url('https://www.colourbox.com/preview/6773380-blaze-fire-flame-texture-background.jpg')" >Mage:
+        <input type="radio" onClick="SelectMage();displayStats(userName, userClass, userStats)" name="classSelect">
+      </label>
     </div>
-    <div>
-      <div> td1 </div>
-      <div>
-        <div id='battlemap' style="width:600px;height:500px">
-          <div id='monster' style='display:none'> <img src="http://40.media.tumblr.com/d13b329e4a27e493797077d3ea3fc856/tumblr_n7faf9iWUS1to7ny3o3_1280.jpg" style="width:100%;height:90%">
-            <div id='fightButtons'>
-              <button value='basic' onClick='Event(this.value, userHero)'>Basic Attack</button>
-              <button value='special' onClick='Event(this.value, userHero)'>Special Attack</button>
-              <button value='ultimate' onClick='Event(this.value, userHero)'>Ultimate Attack</button>
+  </aside>
+  <aside>
+    <div id="statroll" style="width:28%;height:40%;float:right;display:block;border:3px solid #d9b834;margin-top:15px">
+      <div id="rollbox" > Strength: 0 <br>
+        Increases overall health and a warrior's damage.<br>
+        Agility: 0 <br>
+        Increases overall critical strike chance and a rogue's damage.<br>
+        Inteligence: 0 <br>
+        Increases overall experience gained and a mage's damage.<br>
+        Health Points: 0 <br>
+        Determines the amount of punishment a hero can take.<br>
+      </div>
+      <button class="creatorButton" onClick="StatGen();displayStats(userName, userClass, userStats)" style="margin-left:40%;margin-top:10%;margin-bottom:5%">Roll Stats</button>
+    </div>
+  </aside>
+  <!--roll-->
+  <div id="classDescription" style="width:97%;height:10%;float:left;display:block;border:3px solid #d9b834;padding:10px;margin-top:10px"> Class description </div>
+  <div id="startgame" style="width:100%;height:10%;float:left;display:block;align-content:center;margin-top:10px;" >
+    <button style="margin-left:35%" onClick="CreateCharacter(userName, userClass, userStats)" id="finish">Create Character</button>
+  </div>
+  <!--create button-->
+</div>
+
+<div id="gameon" style="width:100%;height:100%">
+	<div id="toplevelui" style="width:100%;height:250px;">
+    	<div id="userinterface" style="float:left;width:30%;height:100%;background-image:url(lvl.png);background-size:100% 100%;">
+          <div id="levelUp" style="overflow:hidden;padding:10px;margin-top:70px;margin-left:130px;" ></div>
+          </div>
+          <!--level up Table--> 
+    	<div id="userinterface" class="statusbar" style="width:39%;height:100%;">
+          <div id="status" style="overflow:hidden;padding:10px;margin-top:70px;margin-left:50px" ></div>
+          </div>
+          <!-- status --> 
+    	<div id="userinterface" style="float:right;width:30%;height:100%;background-image:url(equipment.jpg);background-size:100% 100%;">
+          <div id="equipment" style="overflow:hidden;padding:10px;margin-left:65px" ></div>
+          </div>
+          <!--equipment Table--> 
+     </div>
+     <div id="midlevelui" style="width:100%;height:550px;margin-left:40px">   
+        <div id="battlemap" style="width:80%;height:500px">
+          <div id="monster" style="display:none;width:100%;height:500px"> <img src="http://40.media.tumblr.com/d13b329e4a27e493797077d3ea3fc856/tumblr_n7faf9iWUS1to7ny3o3_1280.jpg" alt="monsterpic" style="position:relative;width:100%;height:90%">
+            <div id="fightButtons">
+              <button value="basic" onClick="Event(this.value, userHero)">Basic Attack</button>
+              <button value="special" onClick="Event(this.value, userHero)">Special Attack</button>
+              <button value="ultimate" onClick="Event(this.value, userHero)">Ultimate Attack</button>
             </div>
           </div>
-          <div id='field'></div>
+          <div id="field" style="width:100%;height:500px"></div>
         </div>
-        <!--battle and map--> 
-      </div>
-      <div id="heropicdisplay" style="width:500px;height:200px"> td3 </div>
-    </div>
-    <div>
-      <div>
-        <div id='userinterface' style="overflow:scroll;height:300px;width:320px;background-image:url('http://2.bp.blogspot.com/-MNLuGO8dtUY/Tgysmvb93XI/AAAAAAAAATU/PyhXB5xVYVY/s1600/Druidic%2BSatchelb.jpg');background-size:300px 300px;">
-          <div id='inventory'></div>
+        <!--battle and map-->
+     </div>
+     <div id="bottomlevelui" style="width:100%;height:30%;"> 
+        <div id="userinterface" style="height:300px;width:30%;background-image:url('http://2.bp.blogspot.com/-MNLuGO8dtUY/Tgysmvb93XI/AAAAAAAAATU/PyhXB5xVYVY/s1600/Druidic%2BSatchelb.jpg');background-size:100% 100%;float:left;">
+          <div id="inventory"></div>
           <!--Inventory Table--> 
         </div>
-      </div>
-      <div>
-        <div id='playpen' style="overflow:scroll;height:300px;width:620px;background-color:rgba(1000, 1000, 1000, 0.6);">
-          <p id='messageArea'>Output: </p>
+        <div id="playpen" style="overflow:auto;height:300px;width:39%;background-color:rgba(1000, 1000, 1000, 0.6);display:inline-block;margin-left:5px">
+          <p id="messageArea"></p>
         </div>
         <!--update pane--> 
-      </div>
-      <div>
-        <div id='userinterface' style="background-image:url('http://orig05.deviantart.net/c93e/f/2010/029/6/e/magic_3_by_ameliy.jpg');background-size:500px 300px;">
-          <div id='spellbook'></div>
+        <div id="userinterface" style="height:300px;width:30%;background-image:url('http://orig05.deviantart.net/c93e/f/2010/029/6/e/magic_3_by_ameliy.jpg');background-size:100% 100%;float:right;">
+          <div id="spellbook"></div>
           <!--spell book Table--> 
         </div>
-      </div>
-    </div>
-  </div>
+     </div>
   <!--game pen--> 
-  
 </div>
 <!--Hidden-->
 
-<p id='stuff'>stuff:
-  <button onClick='test()'>the button</button>
+<div id="hideMe">
+<div id="heropicdisplay" style="width:500px;height:200px"> td3 </div>
+<div id="totalStats">the stat box</div>
+<p id="stuff">stuff:
+  <button onClick="test()">the button</button>
 </p>
-<p id='other'>other: every 10 map iterations put storyline
+<p id="other">other: every 10 map iterations put storyline
   heals dont change status table </p>
-<p id='foo'>foo:
-  <button onClick='userHero.levelUp();out(userHero.int)'>the other button</button>
+<p id="foo">foo:
+  <button onClick="userHero.levelUp();out(userHero.int)">the other button</button>
 </p>
+</div>
 </body>
 </html>
