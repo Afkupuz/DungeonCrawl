@@ -276,7 +276,7 @@ function HeroController(width, height){
          //this.terrain = document.getElementById('stuff');
          //this.terrain.appendChild(document.createTextNode("tree"));
          if (userHero.spellBook.length < 2){
-         if(Math.random()*100 > 99){
+         if(Math.random()*100 > 85){
          var spell = Math.random()*100 > 50 ? new MountainWalk():new Heal();
          if(userHero.spellBook.length === 0){
              userHero.addSpell(spell);
@@ -566,7 +566,7 @@ function Character(name, str, agi, int, hp, itemLevel){
     var equip = 'userHero.equip(this.value)'
     
     $.each(this.bag, function(one, two) {
-        var pic = two.type == 'weapon' ? '<img src="http://pre08.deviantart.net/5882/th/pre/i/2014/291/4/6/sci_fi_sword_7_by_ah_kai-d821rly.jpg" style="width:100px;height:50px">' : '<img src="http://pre00.deviantart.net/474d/th/pre/i/2012/030/6/a/plate_armor_by_4seasonswinter-d2xolfe.png" style="width:80px;height:60px">';
+        var pic = two.type == 'weapon' ? '<img src="http://ww1.prweb.com/prfiles/2010/11/17/3417974/1087399539img9617copy.jpg" style="width:100px;height:50px">' : '<img src="https://vignette.wikia.nocookie.net/runescape2/images/3/36/Armadyl_chestplate_detail.png/revision/latest?cb=20120308131423" style="width:80px;height:60px">';
         var stat = two.type == 'weapon' ? "Attack: "+two.attack+"<br\>" : "Defense: "+two.defense+"<br\>"
         bagArray.push({
             field1: pic+"<br\>"+two.name, 
@@ -586,10 +586,10 @@ function Character(name, str, agi, int, hp, itemLevel){
                                  'Your gear: ');
                                  
     var gear = [{
-        field1: '<img src="http://pre08.deviantart.net/5882/th/pre/i/2014/291/4/6/sci_fi_sword_7_by_ah_kai-d821rly.jpg" style="width:100px;height:50px">'+'<br\>'+this.weapon.name,
+        field1: '<img src="http://ww1.prweb.com/prfiles/2010/11/17/3417974/1087399539img9617copy.jpg" style="width:100px;height:50px">'+'<br\>'+this.weapon.name,
         field2: "Attack: "+this.weapon.attack+"<br\>"+" Strength: "+this.weapon.str+"<br\>"+"Agility: "+this.weapon.agi+"<br\>"+"Intelligence: "+this.weapon.int
     }, {
-        field1: '<img src="http://pre00.deviantart.net/474d/th/pre/i/2012/030/6/a/plate_armor_by_4seasonswinter-d2xolfe.png" style="width:80px;height:60px">'+'<br\>'+this.armor.name,
+        field1: '<img src="https://vignette.wikia.nocookie.net/runescape2/images/3/36/Armadyl_chestplate_detail.png/revision/latest?cb=20120308131423" style="width:80px;height:60px">'+'<br\>'+this.armor.name,
         field2: "Defense: "+this.armor.defense+"<br\>"+"Strength: "+this.armor.str+"<br\>"+"Agility: "+this.armor.agi+"<br\>"+"Intelligence: "+this.armor.int
     }];
     
@@ -673,7 +673,7 @@ function Character(name, str, agi, int, hp, itemLevel){
 };//end character
 function Warrior() {
     this.type = 'Warrior';
-    this.pic = '<img src="https://www.ultimateeditionoz.com/forum/download/file.php?id=15404&mode=view" style="width:100%;height:100%;">';
+    this.pic = '<img src="https://vignette.wikia.nocookie.net/voldrania/images/3/3b/Zaescaes_warrior.png/revision/latest?cb=20140315155633" style="width:100%;height:100%;">';
     this.str = this.str+5;
     this.passive = function(){
         //on level up
@@ -1010,9 +1010,9 @@ function getName(){
 function SelectWarrior(){
     var description = "The Warrior is the symbol of strength and courage. Wade into battle with a roar! <br\> Passive: Extra Strength and Durrability"
 	document.getElementById('classDescription').innerHTML = description;
-	document.getElementById('classPicture').innerHTML = '<img src="https://www.ultimateeditionoz.com/forum/download/file.php?id=15404&mode=view" style="width:100%;height:100%;">';
+	document.getElementById('classPicture').innerHTML = '<img src="https://vignette.wikia.nocookie.net/voldrania/images/3/3b/Zaescaes_warrior.png/revision/latest?cb=20140315155633" style="width:100%;height:100%;">';
 	userClass = 'warrior';
-	zepic = "'https://www.ultimateeditionoz.com/forum/download/file.php?id=15404&mode=view'";
+	zepic = "'https://vignette.wikia.nocookie.net/voldrania/images/3/3b/Zaescaes_warrior.png/revision/latest?cb=20140315155633'";
 }
 function SelectMage(){
     var description = "Hang back and rain hell down on EVERYTHING. The Magi is the pillar of intellect! <br\> Passive: Intelligence boosts damage"
@@ -1082,7 +1082,7 @@ function Heal(){
     this.currentCount = moveCount;
     this.heal = function(){
         var count = moveCount;
-        var amount = Math.floor(Math.random()*100);
+        var amount = Math.floor((.1 * userHero.hpMax) + Math.random()*100);
         if (count - this.currentCount > 10){
             userHero.hpMax += amount;
         output("You have recovered "+amount+" hp, you are now at "+userHero.hpMax)
@@ -1218,7 +1218,7 @@ function test1(user){
     this.user=user;
     var target = user.removeItem(this.value);
     $.each(user.bag, function(one, two) {
-        var pic = two.type == 'weapon' ? '<img src="http://pre08.deviantart.net/5882/th/pre/i/2014/291/4/6/sci_fi_sword_7_by_ah_kai-d821rly.jpg" style="width:100px;height:50px">' : '<img src="http://pre00.deviantart.net/474d/th/pre/i/2012/030/6/a/plate_armor_by_4seasonswinter-d2xolfe.png" style="width:80px;height:60px">';
+        var pic = two.type == 'weapon' ? '<img src="http://ww1.prweb.com/prfiles/2010/11/17/3417974/1087399539img9617copy.jpg" style="width:100px;height:50px">' : '<img src="https://vignette.wikia.nocookie.net/runescape2/images/3/36/Armadyl_chestplate_detail.png/revision/latest?cb=20120308131423" style="width:80px;height:60px">';
         var stat = two.type == 'weapon' ? "Attack: "+two.attack+"<br\>" : "Defense: "+two.defense+"<br\>"
         bagArray.push({
             field1: pic+"<br\>"+two.name,
