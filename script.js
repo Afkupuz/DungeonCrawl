@@ -74,7 +74,7 @@ function CreateWorld(width, height){
 
 }//creates the map and sets the land type in the array
 function Hero(x, y, map){
-    this.name = 'lancelot';
+    this.name = 'Lancelot';
     this.hori = x;
     this.vert = y;
     this.myX = function(){
@@ -710,7 +710,7 @@ function Warrior() {
         var crit = Math.floor((Math.random() * 100))
         if (this.crit() >= crit ){
             this.damage *= 2
-          output('Suddenly, fire explodes from the cracks! The moster BURNS...');
+          output('Suddenly, fire explodes from the cracks! The monster BURNS...');
         }
       return Math.floor(this.damage);
     }
@@ -755,7 +755,7 @@ function Rogue() {
         this.damage = Math.floor((Math.random() * this.weapon.attack) + this.level + agi);
         var crit = Math.floor((Math.random() * 100))
         if ((this.crit()+this.passive()) >= crit ){
-            output('You swing your '+this.weapon.name+" repeatedy in a distracting manner, then suddenly whip out a main gosh and stab under your opponent's armor!");
+            output('You swing your '+this.weapon.name+" repeatedly in a distracting manner, then suddenly whip out a main gosh and stab under your opponent's armor!");
             return Math.floor(this.damage*2);
         }else{
             output("Your opponent cannot hope to keep up with your seemingly wild attacks!");
@@ -780,10 +780,10 @@ function Rogue() {
         var crit = (Math.floor((Math.random() * 100)))
         if ((this.crit()+this.passive()) >= crit ){
             this.damage *= 5;
-            output('Something obsurese the light, fragmenting the shadows - multiplying them indeterminantly. You watch in near horror as they tear your enemy limb from limb');
+            output('Something obscures the light, fragmenting the shadows - multiplying them indeterminably. You watch in near horror as they tear your enemy limb from limb');
         }
         else{
-            output('Suddenly they all jump on your target. It dissapears under a veil of darkness...');
+            output('Suddenly they all jump on your target. It disappears under a veil of darkness...');
         };
       return Math.floor(this.damage);
     }
@@ -860,7 +860,7 @@ function Mage() {
             output('An angel cleaves its way through your opponent as it flies by on its way to some unknown destination.');
         this.damage *= 2;
         }else if ((this.crit()+55) >= crit){
-            output('A massive demon stops to inflict malacious pain on your opponent. It laughs horribly as it wanders off in search of something else of interest.');
+            output('A massive demon stops to inflict malicious pain on your opponent. It laughs horribly as it wanders off in search of something else of interest.');
         this.damage *= 2;
         }else{
             output("The pull of these two powerful realms tears at your opponent's soul!")
@@ -876,7 +876,7 @@ function Monster(stats, level) {
     this.weapon = new Weapon(this.itemLevel);
     this.armor = new Armor(this.itemLevel);
     this.firstName = new Array("Dire", "Disgusting", "Mutated", "Smelly", "Huge", "Spiked", "Silent", "Nasty");
-    this.secondName = new Array(" Goblin", " Oger", " Worg", " Troll", " Hobgoblin", " Crook");
+    this.secondName = new Array(" Goblin", " Ogre", " Worg", " Troll", " Hobgoblin", " Crook");
     this.first = Math.floor(Math.random()*8);
     this.second = Math.floor(Math.random()*6);
     this.exp = Math.floor((this.monsterLevel*10)*1.3);
@@ -939,7 +939,7 @@ function Monster(stats, level) {
                 output(attackerName + " hits for "+damage+" damage! The "+this.name+" looks like its "+state);
         };
         }else{
-            output("Your attack comes crashing down, but the "+this.name+" jumps away! You growl in frustation...");
+            output("Your attack comes crashing down, but the "+this.name+" jumps away! You growl in frustration...");
         };
         };
 };//end monster
